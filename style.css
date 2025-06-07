@@ -1,99 +1,6 @@
+
+
 /* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-* {
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    user-select: none;
-    
-    color: white;
-}
-
-main {
-    background: #0A0519;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-#header {
-    display: flex;
-    width: 235px;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-}
-#header .player {
-    background: #17122A;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 30px;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 12px;
-    border: solid 4px #17122A;
-    opacity: 0.5;
-    transition: 0.3s;
-}
-#header .player:hover {
-    border: solid 4px #2A2343;
-}
-#header .player-active {
-    opacity: 1;
-    border: solid 4px #2A2343;
-}
-#header #xPlayerDisplay {
-    color: #1892EA;
-}
-#header #oPlayerDisplay {
-    color: #A737FF;
-}
-
-#board {
-    display: grid;
-    grid-template-columns: repeat(3, 70px);
-    grid-template-rows: repeat(3, 70px);
-    gap: 12px;
-}
-#board .cell {
-    background: #17122A;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 36px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s background;
-}
-#board .cell:hover {
-    background: #2A2343;
-}
-
-#restartBtn {
-    margin-top: 30px;
-    width: 235px;
-    background: #17122A;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    border: none;
-    border-radius: 12px;
-    font-weight: 600;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s background;
-    visibility: hidden;
-}
-#restartBtn:hover {
-    background: #2A2343;
-} */
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
     margin: 0;
@@ -114,7 +21,6 @@ main {
     animation: fadeIn 1.2s ease-in-out;
 }
 
-/* Animation Keyframes */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -238,4 +144,173 @@ main {
     background: linear-gradient(90deg, #6b4ae2, #9c5fff);
     transform: translateY(-3px);
     box-shadow: 0 8px 16px rgba(124, 77, 255, 0.3);
+} */
+
+:root {
+  --bg-color: #0A0519;
+  --tile-bg: #17122A;
+  --tile-hover: #2A2343;
+  --text-color: white;
+  --x-color: #1892EA;
+  --o-color: #A737FF;
+  --btn-bg: linear-gradient(90deg, #5a3d9f, #7c4dff);
+  --btn-hover: linear-gradient(90deg, #6b4ae2, #9c5fff);
+}
+
+/* Light Mode Variables */
+body.light-mode {
+  --bg-color: #f3f3f3;
+  --tile-bg: #e0dfff;
+  --tile-hover: #d0ccff;
+  --text-color: #1a1a1a;
+  --x-color: #1876D2;
+  --o-color: #912CFF;
+  --btn-bg: linear-gradient(90deg, #b79aff, #d4c3ff);
+  --btn-hover: linear-gradient(90deg, #a48eff, #c6b2ff);
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  user-select: none;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+main {
+  background: var(--bg-color);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 0px rgba(255,255,255,0.2); }
+  50% { box-shadow: 0 0 20px rgba(255,255,255,0.4); }
+  100% { box-shadow: 0 0 0px rgba(255,255,255,0.2); }
+}
+
+#header {
+  display: flex;
+  width: 235px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+#header .player {
+  background: var(--tile-bg);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 16px;
+  border: solid 4px var(--tile-bg);
+  opacity: 0.5;
+  transition: all 0.3s ease;
+  transform: scale(1);
+}
+
+#header .player:hover {
+  border: solid 4px var(--tile-hover);
+  background: var(--tile-hover);
+  transform: scale(1.1);
+}
+
+#header .player-active {
+  opacity: 1;
+  border: solid 4px var(--tile-hover);
+  animation: pulseGlow 1.5s infinite;
+}
+
+#header #xPlayerDisplay {
+  color: var(--x-color);
+}
+
+#header #oPlayerDisplay {
+  color: var(--o-color);
+}
+
+#board {
+  display: grid;
+  grid-template-columns: repeat(3, 70px);
+  grid-template-rows: repeat(3, 70px);
+  gap: 12px;
+}
+
+#board .cell {
+  background: var(--tile-bg);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+#board .cell:hover {
+  background: var(--tile-hover);
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+#restartBtn {
+  margin-top: 30px;
+  width: 235px;
+  background: var(--btn-bg);
+  padding: 10px 0;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  visibility: hidden;
+  opacity: 0;
+}
+
+#restartBtn.show {
+  visibility: visible;
+  opacity: 1;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+#restartBtn:hover {
+  background: var(--btn-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(124, 77, 255, 0.3);
+}
+
+/* Toggle Switch */
+#modeToggle {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background: var(--tile-bg);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#modeToggle:hover {
+  background: var(--tile-hover);
 }

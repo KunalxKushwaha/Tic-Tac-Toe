@@ -146,3 +146,31 @@ restartBtn.addEventListener('click', () => {
     isGameStart = false
     titleHeader.textContent = 'Choose'
 })
+
+const clickSound = document.getElementById('clickSound');
+const winSound = document.getElementById('winSound');
+const restartButn = document.getElementById('restartBtn');
+const modeToggle = document.getElementById('modeToggle');
+
+document.querySelectorAll('.cell').forEach(cell => {
+  cell.addEventListener('click', () => {
+    clickSound.play();
+    // Your logic to add X/O and check win...
+  });
+});
+
+function triggerWinCelebration() {
+  winSound.play();
+  restartButn.classList.add('show');
+  confetti({
+    particleCount: 150,
+    spread: 100,
+    origin: { y: 0.6 }
+  });
+}
+
+// Theme Toggle Logic
+modeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('light-mode');
+  modeToggle.innerText = document.body.classList.contains('light-mode') ? '🌙 Dark Mode' : '☀️ Light Mode';
+});
