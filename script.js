@@ -3,6 +3,8 @@ const titleHeader = document.querySelector('#titleHeader')
 const xPlayerDisplay = document.querySelector('#xPlayerDisplay')
 const oPlayerDisplay = document.querySelector('#oPlayerDisplay')
 const restartBtn = document.querySelector('#restartBtn')
+document.getElementById("restartBtn").classList.add("show");
+
 
 // Initialize variables for the game
 let player = 'X'
