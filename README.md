@@ -25,7 +25,7 @@ A classic **Tic Tac Toe (Noughts and Crosses)** game built using **HTML, CSS, an
 
 ## 📷 Demo
 
-![Tic Tac Toe Screenshot](./screenshot.png)
+![Tic Tac Toe Screenshot](.SS.png)
 
 > Optionally include a short screen recording or link to live demo:
 > 🔗 [Live Demo](https://your-live-demo-link.com)
