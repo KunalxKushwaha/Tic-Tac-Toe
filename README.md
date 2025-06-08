@@ -33,4 +33,4 @@ A classic **Tic Tac Toe (Noughts and Crosses)** game built using **HTML, CSS, an
 ---
 
 ## 📁 Project Structure
-
+# Author - Kunal Kushwaha
